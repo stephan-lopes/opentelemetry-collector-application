@@ -10,6 +10,9 @@ spec:
     telemetry:
       metrics:
         address: 0.0.0.0:8888
+    extensions:
+      pprof:
+        endpoint: 0.0.0.0:1777
     receivers:
       otlp:
         protocols:
@@ -36,7 +39,12 @@ spec:
           receivers: [otlp, prometheus/self]
           processors: [batch]
           exporters: [debug, prometheus, prometheusremotewrite]
+          extensions: [pprof]
   ports:
     - name: metrics
       port: 8889
+      protocol: TCP
+    - name: pprof
+      port: 1777
+      targetPort: 1777
       protocol: TCP
