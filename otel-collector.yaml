@@ -46,8 +46,6 @@ spec:
           receivers:
             - otlpl
             - prometheus/self
-          extensions: 
-           - pprof
   ports:
     - name: metrics
       port: 8889
