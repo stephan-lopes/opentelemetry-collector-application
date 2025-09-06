@@ -17,8 +17,8 @@ spec:
           scrape_configs:
             - job_name: otel-collector-self
               static_configs:
-              - targets: 
-                  - localhost:8888
+                - targets:
+                    - localhost:8888
     exporters:
       debug:
         verbosity: detailed
@@ -37,13 +37,13 @@ spec:
           address: 0.0.0.0:8888
       pipelines:
         metrics:
-          exporters: 
-           - debug
-           - prometheus
-           - prometheusremotewrite
-          processors: 
-           - batch
-          receivers: 
+          exporters:
+            - debug
+            - prometheus
+            - prometheusremotewrite
+          processors:
+            - batch
+          receivers:
             - otlpl
             - prometheus/self
           extensions: 
