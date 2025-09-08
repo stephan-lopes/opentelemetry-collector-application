@@ -20,6 +20,26 @@ spec:
                 - targets:
                     - localhost:8888
     exporters:
+      datadog:
+        api:
+          site: ""
+          key: ""
+        host_metadata:
+          enabled: false
+        metrics:
+          resource_attribute_as_tags: true
+        tls:
+          insecure_skip_verify: true
+        timeout: 30s
+        retry_on_failure:
+          enabled: true
+          initial_interval: 5s
+          max_interval: 30s
+          max_elapsed_time: 10m
+        sending_queue:
+          enabled: true
+          queue_size: 200000
+          num_consumers: 20000
       debug:
         verbosity: detailed
       prometheus:
