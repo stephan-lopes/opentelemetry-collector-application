@@ -48,6 +48,13 @@ spec:
         endpoint: http://prometheus-kube-prometheus-prometheus.monitoring:9090/api/v1/write
     processors:
       batch: {}
+      metricstransform/rename:
+        transforms:
+          - include: (.*)$$
+            action: update
+            match_type: regexp
+            new_name: custom.tt1.openmetrics.app.$${1}
+
     extensions:
       pprof:
         endpoint: 0.0.0.0:1777
@@ -68,6 +75,7 @@ spec:
             - datadog
           processors:
             - batch
+            - metricstransform/rename
           receivers:
             - otlp
             - prometheus/self
