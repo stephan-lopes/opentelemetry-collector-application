@@ -22,8 +22,8 @@ spec:
     exporters:
       datadog:
         api:
-          key: ""
-          site: ""
+          key: 98f8b6cf3a5d492f450edba4b6a41d18
+          site: datadoghq.com
         host_metadata:
           enabled: false
         metrics:
