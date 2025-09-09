@@ -54,7 +54,6 @@ spec:
             include: (.*)$$
             match_type: regexp
             new_name: custom.tt1.openmetrics.app.$${1}
-
     extensions:
       pprof:
         endpoint: 0.0.0.0:1777
