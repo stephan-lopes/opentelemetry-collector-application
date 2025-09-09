@@ -65,8 +65,7 @@ spec:
         metrics:
           exporters:
             - debug
-            - prometheus
-            - prometheusremotewrite
+            - datadog
           processors:
             - batch
           receivers:
