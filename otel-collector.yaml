@@ -50,8 +50,8 @@ spec:
       batch: {}
       metricstransform/rename:
         transforms:
-          - include: (.*)$$
-            action: update
+          - action: update
+            include: (.*)$$
             match_type: regexp
             new_name: custom.tt1.openmetrics.app.$${1}
 
